@@ -1,0 +1,94 @@
+<!-- Chat bot UI start -->
+<style>
+    .time {
+        margin-top: 2px;
+        display: block;
+        font-size: 0.8rem;
+        color: rgb(250, 255, 173);
+    }
+</style>
+<div class="chat-screen">
+    <div class="chat-header">
+        <div class="chat-header-title">
+            Let’s chat? - We're online
+        </div>
+        <div class="chat-header-option">
+            <span class="dropdown custom-dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-more-horizontal">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="19" cy="12" r="1"></circle>
+                        <circle cx="5" cy="12" r="1"></circle>
+                    </svg>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink1"
+                    style="will-change: transform;">
+                    <a class="dropdown-item end-chat" href="/logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="#bc32ef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-power">
+                            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                            <line x1="12" y1="2" x2="12" y2="12"></line>
+                        </svg>
+                        End Chat
+                    </a>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="chat-mail">
+        <div class="row">
+            <div class="col-md-12">
+                <select class="form-control select2_el" id="language">
+                    <option value='' selected="selected" disabled>Select Language (Chọn ngôn ngữ)</option>
+                    <option value="en">English</option>
+                    <option value="vi">Tiếng Việt</option>
+                </select>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-rounded btn-block" id="startChat" type="submit">Start
+                    Chat</button>
+            </div>
+        </div>
+    </div>
+    <div class="chat-body hide" id="content">
+        <div class="chat-bubble you hide startEn">Welcome to our site, if you need help simply reply to this message, we
+            are online
+            and ready to help.<span class="time">10:00</span></div>
+
+        <div class="chat-bubble you hide startVi">Chào mừng bạn đến với trang web của chúng tôi, nếu bạn cần trợ giúp,
+            chỉ cần trả
+            lời tin nhắn này, chúng tôi đang trực tuyến và sẵn sàng trợ giúp.<span class="time">10:00</span></div>
+        {{#each chat}}
+        <div class="chat-bubble me">{{this.User}}</div>
+        <div class="chat-bubble you">{{this.Chatbot}}</div>
+        {{/each}}
+    </div>
+    <div class="chat-input hide">
+        <input type="text" placeholder="Type a message..." id="prompt">
+        <div class="input-action-icon">
+            <a id="send"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-send">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg></a>
+        </div>
+    </div>
+</div>
+<div class="chat-bot-icon">
+    <img src="./images/we-are-here.svg" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square animate">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x ">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+</div>
+<!-- Chat Bot UI Ends -->
